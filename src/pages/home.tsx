@@ -5,7 +5,10 @@ import { Navbar } from "../components/ui/navbar"
 export const HomePage = () => {
     return <div>
         <Navbar />
-        <HeroSection />
+        <div className="pt-10">
+            <HeroSection />
+        </div>
+        
         <InputGroup />
     </div>
 }
