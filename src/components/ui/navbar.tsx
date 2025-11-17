@@ -1,8 +1,8 @@
 import { Button } from "./button"
 
 export const Navbar = () => {
-    return <div className="sticky z-50 left-0 top-0 border-b text-lg py-3 h-16 w-screen bg-[#112D4E]/75 backdrop-blur-xs">
-        <div className="flex justify-around pb-3 border-[#112D4E] px-10">
+    return <div className="sticky z-50 left-0 top-0 border-b text-lg py-3 h-16 w-screen backdrop-blur-xs">
+        <div className="flex justify-around pb-3 px-10">
             <div className="absolute left-10 pt-1">
                 Logo
             </div>

@@ -5,7 +5,7 @@ import { Navbar } from "../components/ui/navbar"
 export const HomePage = () => {
     return <div>
         <Navbar />
-        <div className="pt-10">
+        <div>
             <HeroSection />
         </div>
         
