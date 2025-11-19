@@ -4,12 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 const button = cva("button", {
   variants: {
     intent: {
-      primary: ["bg-[#112D4E]", "text-[#F9F7F7]", "border-transparent"],
-      secondary: ["bg-[#DBE2EF]", "text-[#112D4E]", "border-gray-400"],
+      primary: ["text-[#3d3d3d]"],
+      secondary: ["bg-[#DBE2EF]", "text-[#112D4E]", "border-[#464646]"],
     },
     size: {
       small: ["text-sm", "py-2", "px-4"],
       medium: ["text-base", "py-3", "px-6"],
+      mobile:["text-md", "py-3", "px-6"]
     },
     disabled: {
       false: null,
@@ -20,12 +21,12 @@ const button = cva("button", {
     {
       intent: "primary",
       disabled: false,
-      class: "hover:bg-[#3F72AF]",
+      class: "cursor-pointer hover:text-black transition-all ease-in-out duration-150",
     },
     {
       intent: "secondary",
       disabled: false,
-      class: "hover:text-[#3F72AF] hover:bg-[#F9F7F7]",
+      class: "cursor-pointer",
     },
     { intent: "primary", size: "medium" },
   ],
@@ -47,9 +48,12 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => (
-  <button
+  <div>
+    <button
     className={button({ intent, size, disabled, className })}
     disabled={disabled || undefined}
     {...props}
   />
+  </div>
+  
 );

@@ -1,29 +1,62 @@
-import { Button } from "./button"
+import { useState } from "react";
+import { Button } from "./button";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Navbar = () => {
-    return <div className="sticky z-50 left-0 top-0 border-b text-lg py-3 h-16 w-screen backdrop-blur-xs">
-        <div className="flex justify-around pb-3 px-10">
-            <div className="absolute left-10 pt-1">
-                Logo
-            </div>
-            <div className="md:flex justify-around gap-x-6 hidden">
-                <div>
-                    <Button intent={"primary"} size={"small"} className="cursor-pointer font-semibold" >Home</Button>
-                </div>
-                <div>
-                    <Button intent={"primary"} size={"small"} className="cursor-pointer font-semibold" >Services</Button>
-                </div>
-                <div>
-                    <Button intent={"primary"} size={"small"} className="cursor-pointer font-semibold"> Contacts</Button>
-                </div>
-                <div>
-                    <Button intent={"primary"} size={"small"} className="cursor-pointer font-semibold"> Log In</Button>
-                </div>
-                <div>
-                    <Button intent={"primary"} size={"small"} className="cursor-pointer font-semibold"> Sign Up</Button>
-                </div>
-            </div>  
-        </div>
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="border-b text-lg h-16 w-screen bg-white">
+      <div className="flex justify-between px-6 md:px-20">
         
+        {/* Logo */}
+        <div className="pt-4 cursor-pointer z-50">Logo</div>
+
+        {/* Desktop Menu */}
+        <div className="pt-4 md:flex gap-x-6 hidden">
+          <Button intent="primary" size="small" className="font-semibold">Home</Button>
+          <Button intent="primary" size="small" className="font-semibold">Services</Button>
+          <Button intent="primary" size="small" className="font-semibold">Contacts</Button>
+          <Button intent="primary" size="small" className="font-semibold">Log In</Button>
+          <Button intent="primary" size="small" className="font-semibold">Sign Up</Button>
+        </div>
+
+        
+        <div
+          onClick={() => {
+            setOpen(x => !x);
+          }}
+          className="pt-5 md:hidden cursor-pointer z-50 relative"
+        >
+          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </div>
+      </div>
+
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: "0%", opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 z-40 bg-white flex flex-col justify-between pt-20"
+          >
+            <div className="px-1">
+              <Button intent="primary" size="mobile">Home</Button>
+              <Button intent="primary" size="mobile">Services</Button>
+              <Button intent="primary" size="mobile">Contacts</Button>
+              <Button intent="primary" size="mobile">Log In</Button>
+              <Button intent="primary" size="mobile">Sign Up</Button>
+            </div>
+
+            <div className="text-xs text-center pb-6">
+              © 2025 | All rights reserved.
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
-} 
+  );
+};

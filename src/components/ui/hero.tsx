@@ -9,7 +9,7 @@ export const HeroSection = () => {
                 </div>
                 <div className="flex justify-center">
                     The Power Of AI
-                </div> 
+                </div>
             </div>
             <div className="md:text-lg text-md pt-5 px-4 md:px-35 text-[#464646]">
                 <p>
