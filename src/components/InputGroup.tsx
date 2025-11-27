@@ -8,11 +8,13 @@ export const InputGroup = () => {
     const durationRef = useRef<HTMLInputElement>(null);
     const [data, setData] = useState([]);
 
-    return <div className="flex flex-col md:flex-row shadow-lg lg:mx-20 md:mx-13 mx-6 rounded-md px-5 mt-6">
-        <div className="text-md border-b-2 md:border-none font-bold md:text-xl py-5 text-center lg:max-w-xl md:max-w-72">
-            Enter The Course Name, The Number Of Days And Start Creating Your Personalized Learning Journey. Click Generate Course And Get Started.
+    return <div className="flex flex-col md:flex-row shadow-lg lg:mx-20 md:mx-13 mx-6 rounded-md px-5 my-6">
+        <div className="text-md border-b-2 md:border-none font-bold md:text-xl py-5 text-center lg:max-w-xl md:max-w-60 flex items-center">
+            <div>
+                Enter The Course Name, The Number Of Days And Start Creating Your Personalized Course. Click Generate Course And Get Started With Your Personalized Learning Journey.
+            </div> 
         </div>
-        <div className="flex flex-col justify-around py-5 md:px-20 md:gap-0 gap-4">
+        <div className="flex flex-col justify-around py-5 md:px-20 md:gap-0 gap-4 w-full md:ml-5">
             <div className="pb-3">
                 <div className="font-bold text-[#464646] cursor-pointer" onClick={() => {
                     courseRef.current?.focus();
@@ -23,12 +25,12 @@ export const InputGroup = () => {
                 <div className="font-bold text-[#464646] cursor-pointer" onClick={() => {
                     durationRef.current?.focus();
                 }}>Duration
-                <span className="text-[#666565] text-xs pl-1">(No. Of Days)</span></div>
+                <span className="text-[#666565] text-xs pl-1">(Number Of Days)</span></div>
                 <div>
                     <Input reference={durationRef} placeholder="No. of days" type="text" />
                 </div>
             </div>
-            <div className="text-center py-5">
+            <div className="text-center pt-5">
                 <Button intent={"primary"} className="border rounded-md transition-all ease-in-out duration-300 " size={"medium"} disabled={false} onClick={async () => {
                     if(!courseRef.current || !durationRef.current) return;
                     const courseName = courseRef.current.value;
@@ -51,11 +53,9 @@ export const InputGroup = () => {
                     console.log(response.data.jsonRes.duration);
                 }}> Generate Course </Button>
             </div>
-        </div>
-        <div>
-            <h1>
-                {data}
-            </h1>
+            <div className="text-[#666666] text-xs text-center pb-5 md:pt-2">
+                Generating the course will take few seconds.
+            </div>
         </div>
     </div>
 }

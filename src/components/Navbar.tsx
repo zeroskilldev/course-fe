@@ -7,7 +7,7 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b text-lg h-16 w-screen bg-white">
+    <div className="sticky inset-0 border-b text-lg h-16 w-screen bg-white">
       <div className="flex justify-between px-6 md:px-20">
         {/* Logo */}
         <div className="pt-4 cursor-pointer z-50">Logo</div>
