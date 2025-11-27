@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 const button = cva("button", {
   variants: {
     intent: {
-      primary: ["text-[#3d3d3d]"],
+      primary: ["text-black"],
       secondary: ["bg-[#DBE2EF]", "text-[#112D4E]", "border-[#464646]"],
     },
     size: {
@@ -21,7 +21,7 @@ const button = cva("button", {
     {
       intent: "primary",
       disabled: false,
-      class: "cursor-pointer hover:text-black transition-all ease-in-out duration-150",
+      class: "cursor-pointer hover:text-[#3d3d3d] transition-all ease-in-out duration-150",
     },
     {
       intent: "secondary",
