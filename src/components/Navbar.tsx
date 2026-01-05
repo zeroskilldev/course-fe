@@ -21,7 +21,7 @@ export const Navbar = () => {
             Services
           </Button>
           <Button intent="primary" size="small" className="font-semibold">
-            Contacts
+            Connect
           </Button>
           <Button intent="primary" size="small" className="font-semibold">
             Log In
@@ -58,7 +58,7 @@ export const Navbar = () => {
                 Services
               </Button>
               <Button intent="primary" size="mobile">
-                Contacts
+                Connect
               </Button>
               <Button intent="primary" size="mobile">
                 Log In

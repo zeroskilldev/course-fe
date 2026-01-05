@@ -45,6 +45,20 @@ export default defineConfig([
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
+## Environment variables
+
+This project uses Vite runtime environment variables (prefixed with `VITE_`) for configuration such as API base URL and API key.
+
+Copy or create a `.env` file in the project root and set the values in the following format (you can copy `.env.example` provided in the repo):
+
+```
+VITE_API_BASE_URL=http://localhost:3000
+VITE_API_KEY=your_api_key_here
+```
+
+Note: `.env` is included in `.gitignore` to avoid committing secrets. Use `.env.example` for reference.
+
+
 ```js
 // eslint.config.js
 import reactX from 'eslint-plugin-react-x'
